@@ -84,7 +84,7 @@ const CreateNewMapDialog = () => {
       fillPercentage: Number(formInputs.fillPercentage),
       tileSize: Number(formInputs.tileSize)
     })
-    mapRenderer.map?.renderMapPreview(canvasRef.current, ctxRef.current)
+    mapRenderer.renderMapPreview(canvasRef.current, ctxRef.current)
   }
 
   const createMap = (e: FormEvent<HTMLFormElement>) => {
