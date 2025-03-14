@@ -1,8 +1,7 @@
 ----------------------------------------------------------
 NEXT SESSION
 ----------------------------------------------------------
-
-
+- add prettier configs to all projects (maybe root will be enough?)
 
 
 

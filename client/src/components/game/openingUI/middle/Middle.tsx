@@ -20,9 +20,14 @@ const Middle = () => {
     changeSocketConnection(instanceServerAdress, connectionId)
   }
 
+  const playDev = () => {
+    changeSocketConnection('http://localhost:5010', '123')
+  }
+
   return (
     <div className='game-middle-ui'>
       <Input placeholder='Username' variant='secondary' />
+      <Button variant='secondary' onClick={() => playDev()}>Play Dev</Button>
       <Button onClick={() => play()}>Play</Button>
     </div>
   )

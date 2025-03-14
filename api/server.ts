@@ -20,7 +20,7 @@ const server = http.createServer(app)
 
 app.use(
   cors({
-    origin: 'http://localhost:5173', // TODO: set to localhost and domain? need research
+    origin: 'http://localhost:5174', // TODO: set to localhost and domain? need research
     credentials: true,
   })
 )

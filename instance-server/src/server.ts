@@ -39,6 +39,16 @@ export const gameManager = new GameManager()
 
 io.on('connection', (socket) => {
   const connectionId = socket.handshake.auth.connectionId
+
+  if (process.env.NODE_ENV || true) { // FIX: NODE_ENV is undefined
+    gameManager.preparePlayerForConnection({
+      connectionId,
+      userId: 'test',
+      equippedItems: { 'accessory': null, 'armor': null, 'belt': null, 'necklace': null, 'primaryWeapon': null, 'ring': null, 'secondaryWeapon': null, 'wings': null },
+      inventoryItems: { equip: {}, materials: {} },
+    })
+  }
+
   gameManager.connectPlayerToTheGame(socket, connectionId)
 
   socket.on('devAddXp', (amount) => {
