@@ -20,7 +20,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.2",
     "redux": "^4.2.1",
-    "riftz-shared": "file:../riftz-shared/src",
+    "riftz-shared": "file:../shared/src",
     "sass": "^1.57.1",
     "seedrandom": "^3.0.5",
     "simplex-noise": "^4.0.3",
