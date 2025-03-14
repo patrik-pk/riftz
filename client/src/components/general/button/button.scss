@@ -1,0 +1,69 @@
+@import '@styles/variables.scss';
+
+.button {
+  position: relative;
+  padding: 0 20px;
+  height: $button-height;
+  border: $button-border;
+  border-radius: $element-border-radius;
+  font-weight: 900;
+  text-transform: uppercase;
+  // text-shadow: $button-text-shadow;
+  transition: 300ms background-color;
+  overflow: hidden;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button.active-effect {
+  &:not(:disabled):active {
+    &,
+    & > * {
+      padding-top: 3px;
+    }
+  }
+}
+
+.button.icon {
+  min-width: $button-height;
+  max-width: $button-height;
+  padding: 0;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    height: auto;
+  }
+}
+
+.button.icon.xs svg {
+  width: 30%;
+}
+
+.button.icon.sm svg {
+  width: 45%;
+}
+
+.button.icon.md svg {
+  width: 60%;
+}
+
+.button.icon.lg svg {
+  width: 75%;
+}
+
+.button.icon.xl svg {
+  width: 90%;
+}
+
+.button.primary {
+  @include button-colorization($primary);
+}
+
+.button.secondary {
+  @include button-colorization($secondary);
+}

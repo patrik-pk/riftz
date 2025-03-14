@@ -1,0 +1,76 @@
+@import '@styles/variables.scss';
+
+.challenge {
+  padding: 10px;
+  border-radius: $element-border-radius;
+  // border: $button-border;
+  background-color: $secondary;
+}
+
+.challenge-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  column-gap: 20px;
+  font-weight: 700;
+  padding: 0 3px;
+}
+
+.challenge-top-label {
+}
+
+.challenge-top-status {
+  white-space: nowrap;
+}
+
+.challenge-bar {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  margin-top: 2px;
+  border: $button-border;
+  border-radius: $element-border-radius;
+  background-color: darken($primary, 10);
+  overflow: hidden;
+}
+
+.challenge-bar-active {
+  position: absolute;
+  height: 100%;
+  background-color: lighten($primary, 10);
+  transition: width 300ms;
+}
+
+.chx {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 10px;
+  align-items: flex-end;
+}
+
+.chx-label {
+  font-weight: 700;
+}
+
+.chx-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 5px;
+  width: 70px;
+  padding: 0;
+
+  svg {
+    width: auto;
+    height: 20px;
+  }
+}
+
+.challenge-bar-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 1;
+  font-weight: 500;
+}

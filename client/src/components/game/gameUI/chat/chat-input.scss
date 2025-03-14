@@ -1,0 +1,23 @@
+@import '@styles/variables.scss';
+
+.gui-chat-input {
+  position: absolute;
+  top: calc(65%);
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  border: 3px $black solid;
+  border-radius: $element-border-radius;
+  opacity: 0;
+  pointer-events: none;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.gci-input,
+.gci-switch {
+  height: 40px;
+}

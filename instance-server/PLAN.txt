@@ -1,0 +1,481 @@
+Stats
+---------
+
+Shared Stats
+- movementSpeed
+- healthPoints
+- weight
+- size
+
+Player Stats
+
+Mob Stats
+
+Mobs
+---------
+Fk rarity mobs and go with levels? Reasons:
++ better flexibility
++ makes the game more interesting to explore higher level locations
++ better scales into late game, where I want to increase level cap by 5-10 levels, so I can just add new mobs
+- maybe a bit harder to design all initial mobs
+
+
+Each mob will have defined their stat multiplier which will be multiplied by
+base stats and level of the spawned mob. Maybe I don't even need a stat multiplier
+and just define few types of mobs for simplicity.
+
+There will definitely be types of mobs.
+
+4story type of mobs
+- agressive/defensive
+- melee, ranged
+
+Taming
+- agressive, defensive, passive
+- all melee + ability
+
+My game
+- behavior = agressive, defensive, passive
+- range = melee, ranged
+
+Mob types
+- each mob has min and max level
+
+Item flow
+---------
+- player has owned items stored in database and currently equipped items as another property
+- when player joins the game trough api play route, api loads their data and send it to instance server,
+  which creates new player in "connectingPlayers". When players gets connected to the instance server, player gets moved
+  from "connectingPlayers" to "players". 
+- after player gets connected (or when data is sent to instance server)
+  - stats from equipped items get calculated
+  - items with functionality (action bar items - weapons and spells) get instantiated
+    - there will be two separated properties for this, equippedItems like in database and
+      action bar items which consists of instantiated equipped items
+    
+
+
+- when player joins the game, all currently equipped items get instantiated based on the id
+
+Example: id = "mythic-daggers"
+
+...
+
+DATABASE ITEMS
+- materials
+  - consists of item id as key and material object as value. For now the only property will be "amount". This is done for flexibility
+  - info about material will be obtained trough game data
+- equip 
+  - consists of unique item id as key and item info as value 
+    (in game item id, rarity, upgradeLevel and later maybe some other info such as bonuses, etc)
+  - no subcategories, such as weapon, armor, etc., because I don't want to make the database reliant on game logic
+    and this could cause problems when deciding whether to split weapons into
+    primary and secondary. Also instance server wont be looping trough players items.
+    This is a job that will be handled by client when displaying equip items, so it doesn't
+    have to be perfectly optimized.
+
+databaseItems = {
+  materials: {
+    "material-id": { amount: 100 }
+  },
+  equip: {
+    "uniqueId": {
+      itemId: "daggers",
+      rarity: "legendary",
+      upgradeLevel: 3
+    }
+  }
+}
+
+----
+
+Equip Items
+- all items have rarities and upgradeLevels
+
+(3 left side)
+- armor
+- accessory (feather, horns, etc.)
+- wings
+
+(3 right side)
+- necklace
+- earring
+- ring
+
+(2 bottom)
+- primary weapon
+- secondary weapon
+
+....
+
+Fk item rarities and keep it simple?
+
+Items will have only upgradeLevels. In the beginning there will be only one asset for each
+item type regardless of upgradeLevel. Later on I can visually change the item based on upgradeLevel? 
+
+Skill trees
+In terms of skill trees I want to have very customizable builds. 
+Each skill tree will allow player to wear only specific equipment.
+E.g. Fire mage only allows to equip fire rod as primary weapon and no secondary weapon.
+
+
+Stats
+- strength
+- dexterity
+- intelligence
+- wisdom
+
+
+Main weapon list (The issue here is that the are too many melee weapons and only little bit of ranged weapons)
+- daggers (dex)
+- sword (str)
+- spear (str)
+- double axes (str)
+- greatsword (str)
+- katana (dex)
+- bow (dex)
+- rod (int)
+- wand (wis)
+
+Skilltrees/Classes
+- Warrior (sword + shield)
+- Archer (daggers + bow)
+- Mage (rod)
+- Priest
+
+Actaully Im gonna go for flexibility and build around it.
+
+Primary weapons
+- daggers
+- sword
+- rod
+
+Secondary weapons
+- bow
+- shield
+
+NEW IDEA
+I just thought about one big balancing issue. When I want to change the cost of certain spell,
+I need to either reset all players skill trees or recalculate their points which is a big issue.
+
+So what I want to do is to make spells as obtainable items. It makes a lot of sense as spell can be
+grinded for. 
+
+Now I need to somehow balance the individual spells so that players don't equip full skillbar of
+op spells. So what comes to my mind is implementing long cast times for op spells.
+
+Also spells will be bound to individual weapons, so it won't be that player can sudenly use 3 stuns in a row.
+Stuns for example will be bound to weapons.
+
+Question is, do I introduce infinite amount of slots, or do I limit them? I probably limit them right? Because
+there will be things like buildings, so if player had 20 slots he can cast several spells but use building at the same
+time. So it makes sense to limit the custom slots to about 8?
+
+Also I like the idea of skill tree. But it will be a very generic one just like in Florr. It will emphasize on specialization,
+whether the player wants to go for damage, tankiness, strong buildings, strong pets, etc.
+
+---
+
+Ok so the idea is to make different builds highly customizable with a lot of spells (unlimited slots) just like in wow
+and limit the usage to cast times. Insta cast spells might cause a few issues, but they will be limited. For example archer
+will have onle few insta cast arrows. Now how do I balance dexterity build with daggers and bow, since it will be possible to combine
+two classes - assassin and archer if I make unlimited slots. So ig I limit the slots to a big amount to force the player to choose
+what they want to go for.
+
+TLDR. about 8 customizable slots for spells with a lot of options seems good.
+
+Now how do I balance pets/mounts in the future? Maybe I 
+
+Slots
+- primary weapon
+- secondary weapon
+- 5-8 spells
+- later on extra slot for tools
+
+SKILL SETS
+Bow (Daggers + Bow)
+- Shot 1
+- Shot 2
+- Shot 3
+- Shot 4
+
+Build goals
+
+Tank
+
+Assassin
+
+Archer
+
+Priest
+
+Mage (fire mage)
+- AOE vortex
+- AOE fireball or smth
+- AOE stun (fear)
+- 2-3 single target spells
+- slow, silence
+- tp
+
+Builder
+- walls, doors, turrets, etc.
+
+---
+
+Anyways these are all balancing details that can i back into later. 
+
+The idea is there will be following equipment:
+- armor
+- accessory
+- wings
+
+- 3 jewel equip items (necklace/belt/earring/ring/talisman/idk)
+
+- primary weapon
+- secondary weapon
+
+Player will have following slots to use
+- primary weapon
+- secondary weapon
+- 8 spells
+
+There will be 4 basic stats which will determine players play style (???? not sure yet)
+- strength (tanky, less mobile, still has plenty of dmg)
+- dexterity (high dps, high mobility, squishy)
+- intelligence
+- wisdom
+
+Now I need to figure out how does player obtain spells.
+It will probably be the best if player has to grind for them and doesn't
+simply unlock them with skill points from level. This way player can collect
+all spells in-game.
+
+TODO: figure out how does player unlock spells - what resources does he need for what?
+
+---
+
+Player will be able to obtain equip/spells/mounts two ways. They either buy them in shop
+for premium currency(p2w, ads, daily challenges) or they craft them.
+
+All items will be craftable from a crafting menu. 
+Crafting menu will have two primary categories - equip and abilities.
+
+Abilities can be done real simple. There will be one resource dropable by all types of mobs.
+Smth like "knowledge essence". It will be the primary resource used to learn/craft abilities.
+Later on rare abilities will also cost other resources to upgrade dropable by specific type of mobs.
+
+Difference between abilities and other items is that ability can be made only once,
+while other items can be created infinitely.
+
+The issue is how do I balance craftable weapons? I planned to have only 1 item for each category
+for simplicity. For example there will be only one bow. How do I make it so that it makes sense
+to craft?
+
+Maybe I make it the same way like with abilities? Player unlocks the weapon only once and then he upgrades
+it from the crafting menu? ... I don't like this solution because it limits the player from being able
+to use weaker equipment. I want equipment to be fully customizable.
+
+Ok so maybe there will be different grades of item. And then each item will have its own category?
+For example category is "sword". And there will be multiple swords. Question is, how do I differentiate
+them? There will for sure be basic starting weapons for each category (maybe except advanced ones like rod, wand, etc.).
+
+---
+
+Abilities will have its own modal window. There will be ability modal and crafting modal. 
+
+Abilities will be simple. The modal will have two categories - learn ability, learned abilities (better name needed).
+In learn ability player can click on the ability and learn it if they have enough resources.
+Once they learn it, they can drag the ability to their actions bar, which will instantiate it. They can also upgrade
+the ability if they have enough resources and level.
+
+Now I need to figure out how is the crafting part gonna work.
+
+---
+
+All equip items need their purpose. If a mob drops certain item, it has to be useful smh.
+
+Other games:
+
+4story
+- "uselles" items are sold for silver or magic equipment can be used to transfer its effect to players item
+- lvl system is kinda dumb, since all items under lvl 34 are uselles. Useful only to get to 34 which is far from max level
+- basic principle = someone starts with low lvl items, then gets to 34 items, then saves material for pvp items
+
+weapon
+lvl 1
+lvl 7
+lvl 16
+lvl 25
+lvl 34
+pvp 34
+
+WOW
+- "uselles" items are sold for gold
+- good items are obtained from drops (maybe crafting)
+- everything scales, which is dumb
+
+BDO
+- "uselles" items can be used to recover durability or can be heated for materials or sold for silver
+- different type of equip, everything of equipable from lvl 0
+
+
+---
+
+My solution has to be asset independant for simpicity. 
+Different assets will be used for skins.
+It has to work with only one asset for each equip item.
+Strength of item can be determined by its color.
+
+---
+
+The low level items will have fixed color, while best grade (or also best-1 grade) items,
+will have the option to change the color (???). But then I also need the flexbility to
+increase the max upgrade level.
+
+---
+
+Example I came up with:
+- stone sword (lvl 1)
+- golden sword (lvl 15)
+- 
+- quartz sword
+
+...idk
+
+---
+
+Ok fk it. I have been thinking about this for 3 hours straight now 
+and making item strength based on some color (rarity/mineral) makes me so
+depressed and unmotivated. Because I want the game to be highly customizable
+with skins. If I make the best items in one color, then there is not flexbility
+in customization. So I sabotage this concept.
+
+---
+
+Just tried replacing individual pixels of an image and it is very expensive
+operation. So this is definitely no go and color variations of an item will be
+all different images.
+
+--- 
+
+Been thinking about upgrade system. Every item is gonna have value. 
+The important part is that value of equip items will go up exponentionaly
+while value of drops will go up linearly. This means that upgrading equip
+will be easy at first but will get harder over time.
+I really like this idea, since it motivates player to go kill stronger mobs
+to get better loot, while the theres bigger and bigger need for loot the further
+player progresses.
+
+
+------------------
+17/03/2024 Builds
+------------------
+
+Daggers main weapon + bow as support (dexterity?)
+
+Bow main weapon + daggers as support (dexterity?)
+
+Sword main weapon + shield (Strength?)
+
+Rod (Int?)
+
+Wand (Wisdom?)
+
+
+STATS
+
+Option A | Specialization based stats = Strength, dexterity, intelligence, wisdom (DS, 4story)
+
+Option B | One offensive stat (BDO)
+
+
+Wow specializations
+- DPS
+- Tank
+- Healer
+
+4story
+
+LoL specializations
+- tank
+- support
+  - healer/utility
+- dmg carry 
+  - ad/ap
+  - single target/multi target
+  - assasin/bruiser/mage/marksman
+
+Riftz specializations
+- tank
+- support (healer)
+- dmg carry
+- builder
+
+------------------------
+
+How do player upgrades their equip
+
+------------------------
+
+Conclusion:
+
+All Riftz stats
+- XXX dmg stat(s)? - strength, dexterity, intelligence, wisdom
+- health (flat number)
+- attack speed (percentage)
+- cdr (percentage)
+- cast speed?
+- movement speed (percentage)
+- size (percentage)
+- weight (percentage)
+- crit (?)
+
+All equip slots
+- primary
+- secondary
+
+- armor
+- wings
+- accessory
+
+- necklace
+- ring
+- earring
+
+------------------------
+24/03/2024
+------------------------
+- all accessories will have 4-5 rollable stats so players can customize them (???)
+  - rolling should be cheap
+    - actually it won't be. Basic way to obtain desired bonuses will be from mob drops
+      and rolling item will be available in shop for certain (not low) price
+  - all stats will have base amount and upgrade level increases it
+  - some stats should be rare such as damage increase
+- while armor, wings and accessory will have determined stats to encourage players 
+  to use them based on their specialization
+
+All accessory stats
+- movement speed (small bonus)
+- cdr
+- cast time
+- attack speed
+- hp
+- attack
+- defense
+
+Assasin Armor/Wings/Accessory stats
+- low defense
+- movement speed
+- attack speed
+- ad bonus
+
+Mage Armor/Wings/Accessory stats
+- low defense
+- cast time
+- cdr
+
+
+- ad caster
+- ad attacker
+- ap caster
+- ap attacker

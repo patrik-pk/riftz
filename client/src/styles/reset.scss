@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-repeat: no-repeat;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+html,
+body {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+  color: $black;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+p,
+a {
+  // font-size: 16px;
+  line-height: 130%;
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+}
+
+button {
+  display: block;
+  // font-size: 16px;
+  cursor: pointer;
+}

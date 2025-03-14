@@ -1,0 +1,62 @@
+@import '@styles/variables.scss';
+
+.gui-item-wrapper {
+  position: relative;
+  min-width: $item-size;
+  max-width: $item-size;
+  min-height: $item-size;
+  max-height: $item-size;
+}
+
+.gui-item-wrapper.info {
+}
+
+.gui-item-wrapper.equip {
+  &:not(.currently-equipped) {
+    // cursor: pointer;
+  }
+
+  &.currently-equipped {
+    border-color: $primary;
+  }
+
+  &.active {
+    @keyframes borderAnimation {
+      0% {
+        border-color: $primary-light;
+      }
+      50% {
+        border-color: $primary-dark;
+      }
+      100% {
+        border-color: $primary-light;
+      }
+    }
+
+    animation: borderAnimation 1s infinite;
+  }
+}
+
+.gui-item-wrapper.inactive {
+  .gui-item-key {
+    color: #aaa;
+  }
+}
+
+.gui-item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $dark-gray;
+  border: 3px $dark-gray solid;
+  border-radius: $element-border-radius;
+}
+
+.gui-item-key {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  color: $white;
+  font-weight: 500;
+  text-shadow: $outline-4;
+}

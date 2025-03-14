@@ -1,0 +1,86 @@
+@import '@styles/variables.scss';
+
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  height: $button-height;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: $button-border;
+  border-radius: $element-border-radius;
+}
+
+.slider-wrapper.primary {
+  background-color: $primary;
+
+  .slider-input::-webkit-slider-thumb {
+    background-color: lighten($primary, 20);
+  }
+
+  .slider-input-field .input {
+    background-color: lighten($primary, 20) !important;
+  }
+}
+
+.slider-wrapper.secondary {
+  background-color: $secondary;
+
+  .slider-input::-webkit-slider-thumb {
+    background-color: lighten($secondary, 20);
+  }
+
+  .slider-input-field .input {
+    background-color: lighten($secondary, 20) !important;
+  }
+}
+
+.slider-label {
+  position: absolute;
+  top: 0;
+  transform: translateY(-70%);
+  left: 6px; // 6px to make it aligned with input label cause slider wrapper has smaller width cause of border
+  white-space: nowrap;
+  text-shadow: $button-text-shadow;
+  font-size: 12px;
+  font-weight: 500;
+  color: $white;
+}
+
+.slider-constrain {
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.slider-input {
+  appearance: initial;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-input-field {
+  min-width: 40px;
+  max-width: 40px;
+
+  .input {
+    height: 30px;
+    padding: unset;
+    border: none;
+    border-radius: unset;
+    text-shadow: unset;
+  }
+}

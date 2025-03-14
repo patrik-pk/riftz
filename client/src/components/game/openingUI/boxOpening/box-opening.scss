@@ -1,0 +1,138 @@
+@import '@styles/variables.scss';
+
+@mixin rarity-shadow($color) {
+  box-shadow: 0px 0px 10px 5px rgba($color, 0.85);
+}
+
+.bo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+  padding: 30px 0;
+  background-color: rgba(black, 0.5);
+  z-index: 110;
+}
+
+.bo-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  width: 1000px;
+  max-width: calc(100vw - 60px);
+}
+
+@keyframes card-reveal {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: unset;
+  }
+}
+
+.bo-item {
+  background: $secondary;
+  border-radius: $element-border-radius;
+  overflow: hidden;
+  border: $button-border;
+  cursor: pointer;
+  transition: 300ms all;
+  animation-name: card-reveal;
+  animation-duration: 500ms;
+
+  &:not(.revealed):hover {
+    transform: scale(1.02);
+
+    &.common {
+      @include rarity-shadow($common);
+    }
+    &.uncommon {
+      @include rarity-shadow($uncommon);
+    }
+    &.rare {
+      @include rarity-shadow($rare);
+    }
+    &.epic {
+      @include rarity-shadow($epic);
+    }
+    &.legendary {
+      @include rarity-shadow($legendary);
+    }
+  }
+}
+
+.bo-item.revealed {
+  cursor: default;
+
+  .bo-item-img,
+  .bo-item-content {
+    visibility: visible;
+  }
+}
+
+.bo-item-img {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background-color: lighten($secondary, 10);
+  visibility: hidden;
+}
+
+.bo-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background: $secondary;
+  visibility: hidden;
+}
+
+.bo-item-label {
+  color: $white;
+  // text-shadow: $outline-4;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.bo-item-rarity {
+  margin-top: 0px;
+  font-size: 20px;
+  font-weight: 700;
+
+  &.common {
+    color: $common;
+  }
+
+  &.uncommon {
+    color: $uncommon;
+  }
+
+  &.rare {
+    color: $rare;
+  }
+
+  &.epic {
+    color: $epic;
+  }
+
+  &.legendary {
+    color: $legendary;
+  }
+}
+
+.continue-btn {
+  margin-top: 30px;
+  opacity: 0;
+  transition: 500ms all;
+
+  &.all-revealed {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,37 @@
+@import '@styles/variables.scss';
+
+.gui-item-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  pointer-events: none;
+
+  &#empty {
+    width: 40%;
+    height: 40%;
+  }
+
+  &#spear {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    width: 110%;
+    height: 110%;
+  }
+
+  &#sword {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    width: 110%;
+    height: 110%;
+  }
+
+  &#daggers {
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+
+    &:nth-child(2) {
+      transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "name": "Player Daggers",
+  "parts": {
+    "head": {
+      "parentId": null,
+      "assetUrl": "http://localhost:5000/assets/player/head.png",
+      "assetPivotX": 0,
+      "assetPivotY": -0.05,
+      "assetSize": 1.1,
+      "assetRotation": 0,
+      "translateX": 0,
+      "translateY": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 100
+    },
+    "arm-left": {
+      "parentId": "head",
+      "assetUrl": "http://localhost:5000/assets/player/arm.png",
+      "assetPivotX": 0,
+      "assetPivotY": 0,
+      "assetSize": 0.5,
+      "assetRotation": 0,
+      "translateX": -1.2,
+      "translateY": -0.2,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 50
+    },
+    "arm-right": {
+      "parentId": "head",
+      "assetUrl": "http://localhost:5000/assets/player/arm.png",
+      "assetPivotX": 0,
+      "assetPivotY": 0,
+      "assetSize": 0.5,
+      "assetRotation": 0,
+      "translateX": 1.2,
+      "translateY": -0.2,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 50
+    },
+    "dagger-left": {
+      "parentId": "arm-left",
+      "assetUrl": "http://localhost:5000/assets/items/diamond-dagger.png",
+      "assetPivotX": 0,
+      "assetPivotY": -0.37,
+      "assetSize": 0.3,
+      "assetRotation": 0,
+      "translateX": 0.05,
+      "translateY": -0.3,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0.3,
+      "zIndex": -10
+    },
+    "dagger-right": {
+      "parentId": "arm-right",
+      "assetUrl": "http://localhost:5000/assets/items/diamond-dagger.png",
+      "assetPivotX": 0,
+      "assetPivotY": -0.37,
+      "assetSize": 0.3,
+      "assetRotation": 0,
+      "translateX": 0.05,
+      "translateY": -0.3,
+      "scaleX": -1,
+      "scaleY": 1,
+      "rotation": 0.3,
+      "zIndex": -10
+    }
+  },
+  "animations": {
+    "scale-x": {
+      "duration": 2000,
+      "repeat": false,
+      "parts": {
+        "head": {
+          "properties": {
+            "scaleX": {
+              "keyframes": [0.5],
+              "values": [0.2]
+            }
+          }
+        }
+      }
+    },
+    "test-anim": {
+      "duration": 500,
+      "repeat": true,
+      "parts": {
+        "arm-left": {
+          "properties": {
+            "scaleX": {
+              "keyframes": [0.5],
+              "values": [0.2]
+            }
+          }
+        }
+      }
+    },
+    "attack-0": {
+      "duration": 500,
+      "repeat": false,
+      "parts": {
+        "arm-left": {
+          "properties": {
+            "translateX": {
+              "keyframes": [0.5],
+              "values": [1.5]
+            },
+            "translateY": {
+              "keyframes": [0.5],
+              "values": [-1.2]
+            },
+            "rotation": {
+              "keyframes": [0.5],
+              "values": [0.5]
+            }
+          }
+        }
+      }
+    },
+    "attack-1": {
+      "duration": 500,
+      "repeat": false,
+      "parts": {
+        "arm-right": {
+          "properties": {
+            "translateX": {
+              "keyframes": [0.5],
+              "values": [-1.5]
+            },
+            "translateY": {
+              "keyframes": [0.5],
+              "values": [-1.2]
+            },
+            "rotation": {
+              "keyframes": [0.5],
+              "values": [-0.5]
+            }
+          }
+        }
+      }
+    },
+    "special-attack-0": {
+      "duration": 1000,
+      "repeat": false,
+      "parts": {
+        "arm-right": {
+          "properties": {
+            "translateX": {
+              "keyframes": [0.5],
+              "values": [-1.5]
+            },
+            "translateY": {
+              "keyframes": [0.5],
+              "values": [-1.2]
+            },
+            "rotation": {
+              "keyframes": [0.5],
+              "values": [-0.5]
+            }
+          }
+        },
+        "arm-left": {
+          "properties": {
+            "translateX": {
+              "keyframes": [0.5],
+              "values": [1.5]
+            },
+            "translateY": {
+              "keyframes": [0.5],
+              "values": [-1.2]
+            },
+            "rotation": {
+              "keyframes": [0.5],
+              "values": [0.5]
+            }
+          }
+        }
+      }
+    },
+    "walk": {
+      "duration": 1000,
+      "repeat": true,
+      "parts": {
+        "arm-left": {
+          "properties": {
+            "translateX": {
+              "keyframes": [],
+              "values": []
+            },
+            "translateY": {
+              "keyframes": [0, 0.25, 0.5, 0.75, 1],
+              "values": [0, 0.1, 0, -0.1, 0]
+            }
+          }
+        },
+        "arm-right": {
+          "properties": {
+            "translateY": {
+              "keyframes": [0, 0.25, 0.5, 0.75, 1],
+              "values": [0, -0.1, 0, 0.1, 0]
+            }
+          }
+        }
+      }
+    }
+  }
+}

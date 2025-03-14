@@ -1,0 +1,63 @@
+@import '@styles/variables.scss';
+
+.create-new-map-dialog {
+  .dialog {
+    width: auto;
+  }
+}
+
+.cnm-content {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  width: 700px;
+  column-gap: 10px;
+}
+
+.preview {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.preview-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #555;
+  border: $button-border;
+  border-radius: $element-border-radius;
+  overflow: hidden;
+}
+
+.preview-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cnm-content-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.ccr-inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.seed-input-container {
+  display: flex;
+  column-gap: 10px;
+}
+
+.ccr-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}

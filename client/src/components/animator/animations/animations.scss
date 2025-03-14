@@ -1,0 +1,30 @@
+@import '@styles/variables.scss';
+
+.animations {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.animation-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-top: 20px;
+}
+
+.animation-list-item {
+  display: grid;
+  grid-template-columns: 1fr 70px auto auto;
+  column-gap: 5px;
+  align-items: center;
+  width: 100%;
+}
+
+.animations-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}

@@ -1,0 +1,35 @@
+@import '@styles/variables.scss';
+
+.currency {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  height: $button-height;
+  padding: 0 10px;
+  border: $button-border;
+  border-radius: $element-border-radius;
+  background-color: $secondary;
+  transition: 300ms all;
+
+  &:hover {
+    background-color: lighten($secondary, 10);
+  }
+
+  svg {
+    width: auto;
+    height: 70%;
+
+    path {
+      fill: $white;
+    }
+  }
+}
+
+.currency-amount {
+  padding-top: 3px;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  text-shadow: $button-text-shadow;
+  color: $white;
+}

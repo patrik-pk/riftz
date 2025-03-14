@@ -1,0 +1,35 @@
+@import '@styles/variables.scss';
+
+.gui-zone-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 30px;
+  border-radius: $element-border-radius;
+  background-color: $dark-gray;
+  text-align: center;
+  font-weight: 500;
+  text-shadow: $button-text-shadow;
+
+  &.pve {
+    color: $success;
+  }
+
+  &.pvp {
+    color: $error;
+  }
+}
+
+.gui-minimap {
+  width: 200px;
+  height: 200px;
+  margin-top: 5px;
+
+  canvas {
+    width: 100%;
+    height: 100%;
+    background: $dark-gray;
+    border-radius: $element-border-radius;
+  }
+}

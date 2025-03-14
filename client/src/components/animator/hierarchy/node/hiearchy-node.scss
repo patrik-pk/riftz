@@ -1,0 +1,42 @@
+@import '@styles/variables.scss';
+
+.node.expanded.expanded > .node-expand .node-expand-icon {
+  svg {
+    transform: rotate(180deg);
+  }
+}
+
+.node-expand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 10px;
+  cursor: default;
+}
+
+.node-expand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 40px;
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    height: auto;
+
+    path {
+      fill: $white;
+    }
+  }
+}
+
+.node-children {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  padding-top: 5px;
+  padding-left: 10px;
+}

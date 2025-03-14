@@ -1,0 +1,62 @@
+@import '@styles/variables.scss';
+
+.select-container {
+  position: relative;
+}
+
+.select-container.primary .select-main-element {
+  @include button-colorization($primary);
+}
+
+.select-container.secondary .select-main-element {
+  @include button-colorization($secondary);
+}
+
+.select-main-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 15px;
+  padding: 0 10px;
+  height: $button-height;
+  border: $button-border;
+  border-radius: $element-border-radius;
+  font-weight: 900;
+  text-transform: uppercase;
+  // text-shadow: $button-text-shadow;
+  transition: 300ms background-color;
+  overflow: hidden;
+  cursor: pointer;
+
+  width: 200px;
+}
+
+.select-icon {
+  width: 20px;
+}
+
+.select-options {
+  position: absolute;
+  top: calc(100%);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 8px);
+}
+
+.select-option {
+  padding: 10px;
+  background-color: $secondary;
+  color: $white;
+
+  &.selected {
+    background-color: $primary;
+  }
+
+  &:last-child {
+    border-radius: 0 0 $element-border-radius $element-border-radius;
+  }
+
+  &:not(.selected):hover {
+    background-color: lighten($secondary, 5);
+  }
+}

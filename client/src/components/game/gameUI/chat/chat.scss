@@ -1,0 +1,147 @@
+@import '@styles/variables.scss';
+
+.gci-input {
+  width: 200px;
+  padding: 0 10px;
+  border-radius: 8px 0 0 8px;
+  background-color: rgba($black, 0.5);
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  // text-shadow: $outline-4;
+}
+
+.gci-switch {
+  width: 90px;
+  border-radius: 0 8px 8px 0;
+  border: none;
+  text-transform: none;
+  // background: $primary-light;
+}
+
+.game-ui-chat {
+}
+
+.message-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-item {
+  max-width: 400px;
+  margin-bottom: 3px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.message-item-type,
+.message-item-text,
+.message-item-from {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: $button-text-shadow;
+  line-height: 150%;
+}
+
+.message-item-type {
+}
+
+.message-item-from {
+  margin-left: 8px;
+
+  span {
+    margin-right: 3px;
+    color: $secondary-light;
+
+    &.me {
+      color: $primary-light;
+    }
+  }
+}
+
+.message-item-text {
+  margin-left: 8px;
+}
+
+// .game-ui-chat.typing {
+//   .chat-input-switch,
+//   .chat-input-input {
+//     color: black;
+//   }
+
+//   .chat-input-input {
+//     background: white;
+//   }
+// }
+
+// .game-ui-chat {
+//   position: absolute;
+//   left: 10px;
+//   bottom: 10px;
+//   width: 300px;
+// }
+
+// .chat-messages {
+//   margin-bottom: 5px;
+// }
+
+// .message-list {
+// }
+
+// .message-item {
+// }
+
+// .message-item-type,
+// .message-item-from,
+// .message-item-message {
+//   color: white;
+//   font-weight: 500;
+// }
+
+// .message-item-type {
+//   margin-right: 3px;
+// }
+
+// .message-item-from {
+//   margin-right: 3px;
+
+//   span {
+//     color: #ccc;
+//   }
+// }
+// .message-item-message {
+// }
+
+// .chat-input {
+//   position: relative;
+//   display: flex;
+// }
+
+// .chat-input-switch,
+// .chat-input-input {
+//   //   height: 30px;
+// }
+
+// .chat-input-switch {
+//   position: absolute;
+//   top: 5px;
+//   left: 7px;
+//   pointer-events: none;
+//   color: white;
+//   font-size: 18px;
+// }
+
+// .chat-input-input {
+//   width: 100%;
+//   height: 30px;
+//   background-color: rgba(0, 0, 0, 0.3);
+//   padding: unset;
+//   padding-left: 65px;
+//   text-align: left;
+//   font-size: 18px;
+//   color: white;
+//   border-radius: 3px;
+// }

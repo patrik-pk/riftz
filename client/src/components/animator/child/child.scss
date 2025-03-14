@@ -1,0 +1,131 @@
+@import '@styles/variables.scss';
+
+.main-title {
+  font-size: 20px;
+  font-weight: 600;
+  text-shadow: $button-text-shadow;
+  color: $white;
+}
+
+.child {
+  margin-top: 10px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.child.expanded {
+  .child__header-expand {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.child.selected {
+  .child__header {
+    background-color: darken($secondary, 10);
+  }
+}
+
+.child__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: default;
+  padding-right: 10px;
+}
+
+.child__header-name {
+}
+
+.child__header-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 40px;
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    height: auto;
+    // transition: 300ms all;
+
+    path {
+      fill: $white;
+    }
+  }
+}
+
+.child__content {
+  margin-left: 15px;
+}
+
+.content-section {
+  margin-top: 15px;
+}
+
+.section-title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  text-shadow: $button-text-shadow;
+  color: $white;
+}
+
+.content-asset {
+}
+
+.asset-img {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: $element-border-radius;
+  border: $button-border;
+  background-color: $secondary;
+  transition: 300ms all;
+
+  &:hover {
+    background-color: lighten($secondary, 10);
+  }
+
+  .input-container {
+    width: 100%;
+    height: 100%;
+
+    .input {
+      display: none;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 75%;
+    height: 75%;
+    pointer-events: none;
+  }
+}
+
+.asset-inputs {
+  display: flex;
+  column-gap: 10px;
+  margin-top: 20px;
+}
+
+.content-input {
+  width: 100px;
+}
+
+.values-inputs {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 10px;
+  row-gap: 10px;
+}

@@ -1,0 +1,94 @@
+@import '@styles/variables.scss';
+
+@mixin input-colorization($background-color, $content-color) {
+  .input {
+    background-color: $background-color;
+    color: $content-color;
+
+    &::placeholder {
+      color: darken($content-color, 30);
+    }
+
+    &:hover {
+      background-color: lighten($background-color, 10);
+    }
+  }
+}
+
+.input-container {
+  display: block;
+  position: relative;
+}
+
+.clear-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: $white;
+      stroke: $white;
+    }
+  }
+}
+
+.input-container.primary {
+  @include input-colorization($primary, $white);
+}
+
+.input-container.secondary {
+  @include input-colorization($secondary, $white);
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  transform: translateY(-30%);
+  left: 10px;
+  white-space: nowrap;
+  text-shadow: $button-text-shadow;
+  font-size: 12px;
+  font-weight: 500;
+  color: $white;
+}
+
+.input {
+  width: 100%;
+  padding: 0 10px;
+  height: $button-height;
+  border: $button-border;
+  border-radius: $element-border-radius;
+  font-weight: 700;
+  text-shadow: $button-text-shadow;
+  text-align: center;
+  transition: 300ms all;
+
+  /* Remove arrows - Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Remove arrows - Firefox */
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  &[type='file'] {
+    // padding-top: 10px;
+    line-height: 50px;
+  }
+
+  &[type='file']::file-selector-button {
+    display: none;
+  }
+}

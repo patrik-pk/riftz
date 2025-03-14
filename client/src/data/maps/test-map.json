@@ -1,0 +1,12 @@
+{
+  "id": "test-map",
+  "name": "Test Map",
+  "mapWidth": 100,
+  "mapHeight": 100,
+  "tileSize": 100,
+  "seed": "test123",
+  "fillPercentage": 0.5,
+  "activeColor": "#ccc",
+  "inactiveColor": "#fff",
+  "wallColor": "#ff0000"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Test Mob",
+  "parts": {
+    "body": {
+      "parentId": null,
+      "assetUrl": "http://localhost:5000/assets/mob/orange-mob.png",
+      "assetPivotX": 0,
+      "assetPivotY": 0,
+      "assetSize": 1,
+      "assetRotation": 0,
+      "translateX": 0,
+      "translateY": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 0
+    },
+    "head": {
+      "parentId": null,
+      "assetUrl": "http://localhost:5000/assets/mob/orange-mob.png",
+      "assetPivotX": 0,
+      "assetPivotY": 0,
+      "assetSize": 0.8,
+      "assetRotation": 0,
+      "translateX": 0,
+      "translateY": -0.8,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 10
+    }
+  },
+  "animations": {}
+}

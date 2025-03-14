@@ -1,0 +1,62 @@
+{
+  "name": "Player Shield",
+  "parts": {
+    "head": {
+      "parentId": null,
+      "assetUrl": "http://localhost:5000/assets/player/head.png",
+      "assetPivotX": 0,
+      "assetPivotY": -0.05,
+      "assetSize": 1.1,
+      "assetRotation": 0,
+      "translateX": 0,
+      "translateY": 0,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 100
+    },
+    "arm-left": {
+      "parentId": "head",
+      "assetUrl": "http://localhost:5000/assets/player/arm.png",
+      "assetPivotX": 0,
+      "assetPivotY": 0,
+      "assetSize": 0.5,
+      "assetRotation": 0,
+      "translateX": -0.8,
+      "translateY": -0.5,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 50
+    },
+    "arm-right": {
+      "parentId": "head",
+      "assetUrl": "http://localhost:5000/assets/player/arm.png",
+      "assetPivotX": 0,
+      "assetPivotY": 0,
+      "assetSize": 0.5,
+      "assetRotation": 0,
+      "translateX": 0.8,
+      "translateY": -0.5,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 50
+    },
+    "shield": {
+      "parentId": "head",
+      "assetUrl": "http://localhost:5000/assets/items/diamond-shield.png",
+      "assetPivotX": 0,
+      "assetPivotY": 0,
+      "assetSize": 1.5,
+      "assetRotation": 0,
+      "translateX": 0,
+      "translateY": -1,
+      "scaleX": 1,
+      "scaleY": 1,
+      "rotation": 0,
+      "zIndex": 110
+    }
+  },
+  "animations": {}
+}

@@ -1,0 +1,20 @@
+@import '@styles/variables.scss';
+
+.hiearchy {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px;
+  height: 100%;
+}
+
+.hiearchy-nodes {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.add-node-btn {
+  margin-top: auto;
+  margin-left: auto;
+}

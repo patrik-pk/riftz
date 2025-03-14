@@ -1,0 +1,23 @@
+@import '@styles/variables.scss';
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+
+.nav-button {
+  border-radius: 0;
+
+  &:not(:last-child) {
+    border-right: none;
+  }
+
+  &:first-child {
+    border-radius: $element-border-radius 0 0 $element-border-radius;
+  }
+
+  &:last-child {
+    border-radius: 0 $element-border-radius $element-border-radius 0;
+  }
+}

@@ -1,0 +1,148 @@
+// Colors
+$black: #1a1a1a;
+$white: #efefef;
+$dark-gray: #323031;
+
+$primary: #a47a33;
+$primary-dark: #816028;
+$primary-light: #c69749;
+$secondary: #4d4d4d;
+$secondary-dark: #3d3d3d;
+$secondary-light: #717171;
+
+$error: #dc3545;
+$success: #00a945;
+
+$common: #9d9d9d;
+$uncommon: #1eff00;
+$rare: #0070dd;
+$epic: #a335ee;
+$legendary: #ff8000;
+
+// Variables
+$gui-padding: 15px;
+$button-height: 50px;
+$button-border: 5px $black solid;
+$element-border-radius: 5px;
+$outline-color: $black;
+
+$item-size: 60px;
+
+// Mixins
+@mixin hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+
+@mixin button-colorization($background-color, $content-color: $white) {
+  background-color: $background-color;
+  color: $content-color;
+
+  svg {
+    path {
+      fill: $content-color;
+      stroke: $content-color;
+    }
+  }
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
+    background-color: lighten($background-color, 10);
+  }
+
+  &:disabled {
+    // background-color: darken($background-color, 10);
+    // color: $content-color;
+    opacity: 0.5;
+  }
+}
+
+// Text outline
+
+// not detailed :/
+@function text-outline($width: 3px, $color: $outline-color) {
+  @return calc(#{$width} * 1) calc(#{$width} * 0) 0 #{$color},
+    calc(#{$width} * 0.9239) calc(#{$width} * 0.3827) 0 #{$color},
+    calc(#{$width} * 0.7071) calc(#{$width} * 0.7071) 0 #{$color},
+    calc(#{$width} * 0.3827) calc(#{$width} * 0.9239) 0 #{$color},
+    calc(#{$width} * 0) calc(#{$width} * 1) 0 #{$color},
+    calc(#{$width} * -0.3827) calc(#{$width} * 0.9239) 0 #{$color},
+    calc(#{$width} * -0.7071) calc(#{$width} * 0.7071) 0 #{$color},
+    calc(#{$width} * -0.9239) calc(#{$width} * 0.3827) 0 #{$color},
+    calc(#{$width} * -1) calc(#{$width} * 0) 0 #{$color},
+    calc(#{$width} * -0.9239) calc(#{$width} * -0.3827) 0 #{$color},
+    calc(#{$width} * -0.7071) calc(#{$width} * -0.7071) 0 #{$color},
+    calc(#{$width} * -0.3827) calc(#{$width} * -0.9239) 0 #{$color},
+    calc(#{$width} * 0) calc(#{$width} * -1) 0 #{$color},
+    calc(#{$width} * 0.3827) calc(#{$width} * -0.9239) 0 #{$color},
+    calc(#{$width} * 0.7071) calc(#{$width} * -0.7071) 0 #{$color},
+    calc(#{$width} * 0.9239) calc(#{$width} * -0.3827) 0 #{$color};
+}
+
+$outline-1: $outline-color 1px 0px 0px, $outline-color 0.94496px 0.327177px 0px,
+  $outline-color 0.785887px 0.618034px 0px, $outline-color 0.42993px 0.749393px 0px,
+  $outline-color 0.147621px 0.68171px 0px, $outline-color -0.060372px 0.442861px 0px,
+  $outline-color -0.41663px 0.159299px 0px, $outline-color -0.686139px -0.11082px 0px,
+  $outline-color -0.883883px -0.353553px 0px, $outline-color -0.992709px -0.56921px 0px,
+  $outline-color -0.999951px -0.999951px 0px, $outline-color -0.805057px -1.28441px 0px,
+  $outline-color -0.441423px -1.35286px 0px, $outline-color -0.114805px -1.18375px 0px,
+  $outline-color 0.242221px -0.815941px 0px, $outline-color 0.618034px -0.327177px 0px,
+  $outline-color 0.904508px 0.176777px 0px, $outline-color 0.969846px 0.243144px 0px;
+
+$outline-2: $outline-color 2px 0 0, $outline-color 1.88991px 0.654389px 0,
+  $outline-color 1.57177px 1.23207px 0, $outline-color 1.08061px 1.68627px 0,
+  $outline-color 0.529143px 1.93788px 0, $outline-color -0.172114px 1.95615px 0,
+  $outline-color -0.936293px 1.74059px 0, $outline-color -1.54638px 1.29083px 0,
+  $outline-color -1.97999px 0.68588px 0, $outline-color -2.21835px 0.105548px 0,
+  $outline-color -2.25435px -0.857803px 0, $outline-color -2.08657px -1.75522px 0,
+  $outline-color -1.72455px -2.38578px 0, $outline-color -1.19435px -2.68051px 0,
+  $outline-color -0.461039px -2.62524px 0, $outline-color 0.354285px -2.22918px 0,
+  $outline-color 1.08282px -1.53999px 0, $outline-color 1.54179px -0.891725px 0,
+  $outline-color 1.79901px -0.209579px 0;
+
+$outline-3: $outline-color 3px 0px 0px, $outline-color 2.83487px 0.981584px 0px,
+  $outline-color 2.35766px 1.85511px 0px, $outline-color 1.62091px 2.52441px 0px,
+  $outline-color 0.705713px 2.91581px 0px, $outline-color -0.287171px 2.98622px 0px,
+  $outline-color -1.24844px 2.72789px 0px, $outline-color -2.07227px 2.16926px 0px,
+  $outline-color -2.66798px 1.37182px 0px, $outline-color -2.96998px 0.42336px 0px,
+  $outline-color -2.94502px -0.571704px 0px, $outline-color -2.59586px -1.50383px 0px,
+  $outline-color -1.96093px -2.27041px 0px, $outline-color -1.11013px -2.78704px 0px,
+  $outline-color -0.137119px -2.99686px 0px, $outline-color 0.850987px -2.87677px 0px,
+  $outline-color 1.74541px -2.43999px 0px, $outline-color 2.44769px -1.73459px 0px,
+  $outline-color 2.88051px -0.838247px 0px;
+
+$outline-4: $outline-color 4px 0px 0px, $outline-color 3.87565px 0.989616px 0px,
+  $outline-color 3.51033px 1.9177px 0px, $outline-color 2.92676px 2.72656px 0px,
+  $outline-color 2.16121px 3.36588px 0px, $outline-color 1.26129px 3.79594px 0px,
+  $outline-color 0.282949px 3.98998px 0px, $outline-color -0.712984px 3.93594px 0px,
+  $outline-color -1.66459px 3.63719px 0px, $outline-color -2.51269px 3.11229px 0px,
+  $outline-color -3.20457px 2.39389px 0px, $outline-color -3.69721px 1.52664px 0px,
+  $outline-color -3.95997px 0.56448px 0px, $outline-color -3.97652px -0.432781px 0px,
+  $outline-color -3.74583px -1.40313px 0px, $outline-color -3.28224px -2.28625px 0px,
+  $outline-color -2.61457px -3.02721px 0px, $outline-color -1.78435px -3.57996px 0px,
+  $outline-color -0.843183px -3.91012px 0px, $outline-color 0.150409px -3.99717px 0px,
+  $outline-color 1.13465px -3.8357px 0px, $outline-color 2.04834px -3.43574px 0px,
+  $outline-color 2.83468px -2.82216px 0px, $outline-color 3.44477px -2.03312px 0px,
+  $outline-color 3.84068px -1.11766px 0px, $outline-color 3.9978px -0.132717px 0px;
+
+$outline-5: $outline-color 5px 0px 0px, $outline-color 4.90033px 0.993347px 0px,
+  $outline-color 4.60531px 1.94709px 0px, $outline-color 4.12668px 2.82321px 0px,
+  $outline-color 3.48353px 3.58678px 0px, $outline-color 2.70151px 4.20736px 0px,
+  $outline-color 1.81179px 4.6602px 0px, $outline-color 0.849836px 4.92725px 0px,
+  $outline-color -0.145998px 4.99787px 0px, $outline-color -1.13601px 4.86924px 0px,
+  $outline-color -2.08073px 4.54649px 0px, $outline-color -2.94251px 4.04248px 0px,
+  $outline-color -3.68697px 3.37732px 0px, $outline-color -4.28444px 2.57751px 0px,
+  $outline-color -4.71111px 1.67494px 0px, $outline-color -4.94996px 0.7056px 0px,
+  $outline-color -4.99147px -0.291871px 0px, $outline-color -4.83399px -1.27771px 0px,
+  $outline-color -4.48379px -2.2126px 0px, $outline-color -3.95484px -3.05929px 0px,
+  $outline-color -3.26822px -3.78401px 0px, $outline-color -2.4513px -4.35788px 0px,
+  $outline-color -1.53666px -4.75801px 0px, $outline-color -0.560763px -4.96845px 0px,
+  $outline-color 0.437495px -4.98082px 0px, $outline-color 1.41831px -4.79462px 0px,
+  $outline-color 2.34258px -4.41727px 0px, $outline-color 3.17346px -3.86382px 0px,
+  $outline-color 3.87783px -3.15633px 0px, $outline-color 4.4276px -2.32301px 0px,
+  $outline-color 4.80085px -1.39708px 0px, $outline-color 4.98271px -0.415447px 0px;
+
+$button-text-shadow: $outline-4;

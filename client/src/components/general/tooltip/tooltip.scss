@@ -1,0 +1,23 @@
+@import '@styles/variables.scss';
+
+.tooltip {
+  position: fixed;
+  padding: 10px;
+  border-radius: $element-border-radius;
+  background-color: $dark-gray;
+  font-size: 14px;
+  color: $white;
+  z-index: 10000;
+
+  // IMPORTANT: If you want to enable pointer events,
+  // the whole tooltip event loop has to be refactored into custom "mousemove" events,
+  // since tooltip is not a child of its parent and will trigger "mouseleave" on parent
+  // when you hover over it. If tooltip is positioned over parent, this will cause flicking.
+  pointer-events: none;
+}
+
+.tooltip-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: $primary-light;
+}

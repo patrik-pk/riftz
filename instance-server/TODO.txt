@@ -1,0 +1,20 @@
+----------------------------------------------------------
+TODO
+----------------------------------------------------------
+- add reactive library that would react on property changes (mainly inventoryItems in itemManager.ts) 
+  and send them to player trough sockets
+
+- remove all items from equip/inventory
+- items will be obtainable upon clicking on "+" icon on their slot. If player doesn't
+  have required level to obtain it, it will be locked instead. When player clicks on the "+" button,
+  obtainable items will be offered
+
+
+
+
+- add accessory and render it correctly
+- add jewels
+- display and calculate stats
+  - stats = bottom left in inventory dialog, action bts = bottom right
+
+

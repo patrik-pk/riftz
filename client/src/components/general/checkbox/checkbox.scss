@@ -1,0 +1,57 @@
+@import '@styles/variables.scss';
+
+.checkbox-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.checkbox {
+  position: relative;
+  width: $button-height;
+  height: $button-height;
+  border-radius: $element-border-radius;
+  background-color: $secondary;
+  border: $button-border;
+  transition: 300ms all;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: lighten($secondary, 10);
+  }
+}
+
+.checkbox-label {
+  // TODO: version for small space
+  // position: absolute;
+  // top: 0;
+  // left: 50%;
+  // transform: translateX(-50%) translateY(-30%);
+
+  white-space: nowrap;
+  text-shadow: $button-text-shadow;
+  font-size: 12px;
+  font-weight: 500;
+  color: $white;
+  z-index: 10;
+}
+
+.checkbox-input {
+}
+
+.checkbox {
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: auto;
+    height: 70%;
+
+    path {
+      fill: $white;
+    }
+  }
+}

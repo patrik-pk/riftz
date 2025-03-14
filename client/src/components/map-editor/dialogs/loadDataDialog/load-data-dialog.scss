@@ -1,0 +1,87 @@
+@import '@styles/variables.scss';
+
+.load-data-dialog {
+  .dialog {
+    width: auto;
+  }
+}
+
+.add-node-dialog-btn {
+  margin-top: 5px;
+  margin-left: auto;
+}
+
+.object-list {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  row-gap: 10px;
+  column-gap: 10px;
+  // width: 600px;
+}
+
+.object-item {
+  position: relative;
+  background-color: lighten($secondary, 20);
+  border-radius: $element-border-radius;
+  border: $button-border;
+  cursor: pointer;
+
+  &:hover {
+    .test-effect {
+      background-color: rgba(black, 0.0);
+    }
+  }
+}
+
+.object-item.current {
+  border-color: $primary;
+  cursor: default;
+
+  .test-effect {
+    display: none;
+  }
+
+  .object-item-name {
+    color: $primary;
+  }
+}
+
+.test-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(black, 0.15);
+  transition: 300ms all;
+}
+
+.object-item-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.object-item-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 35px;
+  background-color: lighten($secondary, 30);
+  // background-color: $primary;
+  border-radius: 0 0 $element-border-radius $element-border-radius;
+  text-align: center;
+  text-shadow: $outline-4;
+  text-transform: uppercase;
+  font-weight: bold;
+}

@@ -1,0 +1,51 @@
+@import '@styles/variables.scss';
+
+.color-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: $button-height;
+  border-radius: $element-border-radius;
+  border: $button-border;
+  cursor: pointer;
+}
+
+.color-picker-value {
+  text-shadow: $outline-4;
+  color: white;
+  font-weight: 500;
+}
+
+.color-picker-menu {
+  padding: 10px;
+  background-color: #ccc;
+  border-radius: $element-border-radius;
+}
+
+.color-picker-label {
+  position: absolute;
+  top: 0;
+  transform: translateY(-70%);
+  left: 10px;
+  white-space: nowrap;
+  text-shadow: $button-text-shadow;
+  font-size: 12px;
+  font-weight: 500;
+  color: $white;
+}
+
+.color-picker-menu-label {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.color-picker-field {
+  margin-top: 10px;
+}
+
+.color-picker-input {
+  width: 200px;
+  margin-top: 10px;
+}

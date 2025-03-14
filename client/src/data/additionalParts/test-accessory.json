@@ -1,0 +1,15 @@
+{
+  "partId": "accessory",
+  "parentId": "head",
+  "assetUrl": "http://localhost:5000/assets/interface/upgrade.png",
+  "assetPivotX": 0,
+  "assetPivotY": 0,
+  "assetSize": 1,
+  "assetRotation": 0,
+  "translateX": 0,
+  "translateY": -0.6,
+  "scaleX": 1,
+  "scaleY": 1,
+  "rotation": 0,
+  "zIndex": 130
+}

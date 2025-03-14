@@ -1,0 +1,35 @@
+@import '@styles/variables.scss';
+
+.login-dialog {
+  .dialog {
+    width: 250px;
+    min-height: unset;
+  }
+}
+
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  @include button-colorization(#6874f3);
+
+  svg {
+    width: 30px;
+    height: 75%;
+  }
+}
+
+.login-button.google {
+  @include button-colorization(#e04c3a);
+
+  svg {
+    height: 60%;
+  }
+}

@@ -1,0 +1,67 @@
+@import '@styles/variables.scss';
+
+$headerHeight: calc(#{$button-height} + 20px);
+
+.animator {
+  display: grid;
+  grid-template-rows: $headerHeight 1fr;
+  row-gap: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.animator__header {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background: #777;
+}
+
+.header-left {
+  display: flex;
+  column-gap: 10px;
+}
+
+.animator-middle {
+  display: grid;
+  // grid-template-columns: 300px 1fr 400px;
+  column-gap: 10px;
+  min-height: 0;
+}
+
+.animator-middle-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #777;
+  min-height: 0;
+
+  &.left {
+    border-radius: 0 $element-border-radius 0 0;
+  }
+
+  &.middle {
+    border-radius: $element-border-radius $element-border-radius 0 0;
+  }
+
+  &.right {
+    border-radius: $element-border-radius 0 0 0;
+  }
+}
+
+.animator-expand-bar {
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  cursor: e-resize;
+
+  &.left {
+    left: 100%;
+  }
+
+  &.right {
+    right: 100%;
+  }
+}

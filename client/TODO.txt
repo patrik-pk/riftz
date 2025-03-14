@@ -1,0 +1,90 @@
+----------------------------------------------------------
+NEXT SESSION
+----------------------------------------------------------
+- move into single repository
+
+
+
+
+----------------------------------------------------------
+MAP EDITOR
+----------------------------------------------------------
+- fix space between tiles during rendering 
+  - happens cause of rounding (camera transform and scale)
+
+- texture rendering on non-wall tiles
+  - render if tile value ==== 1 or if atleast one adjanced tile has value of 1 (not corner ones).
+    Need to make separate variable for this, so that it doesn't get computed during render.
+    So I have to either remake tiles into array of objects or maybe make another data structure? 
+  - start with rendering solid bg to test if the condition is right
+
+- combine get walls and mesh vertices into a single method?
+- debug configuration index of a square
+- debug square nodes
+- marching squares linear interpolation
+
+----------------------------------------------------------
+ANIMATOR
+----------------------------------------------------------
+- fix endless download if api not available
+
+- await asset download in editor
+
+- design keyframes in KeyframesPlayground
+
+- handle canvas resize (when resizing columns)
+- add resizable columns to localStorage
+
+- move "Copy JSON" to context menu and style the context menu
+
+- start with top bar styling after comeback
+  - need to display current object name somewhere
+  
+- display parts hitbox on hover
+
+
+
+
+- ability to move/rotate/etc. parts in viewport
+  - three edit modes - move (W), scale (S), rotate (R) - issue: asset rotation and rotation
+- better asset pivot point edit mode
+  - "adjust" button in inspector next to "change asset" that opens new window in viewport
+    that allows to adjust assets rotation and pivot point
+  - maybe integrate the feature directly into viewport
+  - maybe implement asset rotation into viewport next to rotation and another viewport tab
+    will have exclusively editor for the pivot points.
+  - or the asset rotation option can be both in viewport and new edit asset tab
+
+- prepare for the ability to add skins. All player objects will need to have
+  customized properties for each skin. So need to prepare for that.
+
+----------------------------------------------------------
+GAME
+----------------------------------------------------------
+- render equipped armor/wings/accessory
+- add wings
+
+- equip/unequip item with button
+  - clicking one item will select it, which will conditionally render buttons
+    - equipped item - unequip btn
+    - equipped item - equip btn
+
+----------------------------------------------------------
+OTHER
+----------------------------------------------------------
+- menu component (like q-menu)
+
+- api.ts types
+- select label
+
+- style checkbox
+
+- tooltip handle overflow
+
+- test app in other browser
+  - for example Firefox is gonna have issues with components like Slider, 
+    cause of input range appearance
+
+- small variant for checkbox
+
+- refactor to tailwind, because having css in separate file is getting painful

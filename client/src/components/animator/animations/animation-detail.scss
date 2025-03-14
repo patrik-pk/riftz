@@ -1,0 +1,90 @@
+@import '@styles/variables.scss';
+
+.animation-detail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+// Top
+.animation-detail-top {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.adp-back-btn {
+  svg {
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+  }
+}
+
+.adp-title {
+  &:hover {
+    .edit-name-btn {
+      visibility: visible;
+    }
+  }
+}
+
+// Part List
+.animation-detail-part-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+// Part Detail
+.animation-detail-part-detail {
+  margin-top: 10px;
+}
+
+.keyframe-properties {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 15px;
+}
+
+.keyframe-property {
+}
+
+.keyframe-detail {
+  padding-top: 10px;
+  // background-color: #777;
+  border-radius: 0 0 $element-border-radius $element-border-radius;
+}
+
+.keyframe-rows {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.keyframe-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  column-gap: 10px;
+}
+
+.inputs-keyframes,
+.inputs-values {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.keyframes-actions {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 10px;
+}
+
+// Actions
+.animation-detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
