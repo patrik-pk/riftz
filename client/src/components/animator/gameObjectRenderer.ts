@@ -293,6 +293,7 @@ export class GameObjectRenderer {
 
   // TODO: continue here? if/else draw svg
   private async renderAsset(data: CalculatedPart, size: number, makeTransparent?: boolean) {
+    // FIX: smth about translate/rotate is wrong here, UI works fine
     const { steps, assetUrl, svgPath } = data
 
     if (assetUrl) {
