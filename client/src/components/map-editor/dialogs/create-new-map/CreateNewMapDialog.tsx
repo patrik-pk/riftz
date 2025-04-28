@@ -9,9 +9,6 @@ import Cube from '@/components/icons/cube.svg'
 import { MapEditorRenderer } from '@/components/map-editor/mapRenderer'
 import Slider from '@/components/general/slider/Slider'
 
-// TODO:
-// seed input randomize button
-
 const generateRandomNumberString = (): string => {
   return Array.from({ length: 6 }, () => Math.floor(Math.random() * 10)).join('')
 }

@@ -2,9 +2,6 @@ import alea from 'alea'
 import { Square, SquareGrid } from './node'
 import { IVector2 } from 'riftz-shared'
 
-// TODO:
-// - refactor this strictly into map generator and remove all render logic from here
-
 interface Wall {
   pointA: IVector2
   pointB: IVector2
